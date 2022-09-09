@@ -1,0 +1,8 @@
+prefix=/home/weifeng/wh_ws/install
+
+Name: Test_Config3
+Description: Description of Test_Config3
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/weifeng/wh_ws/install
+
+Name: robot_function-pkg
+Description: Description of robot_function-pkg
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
