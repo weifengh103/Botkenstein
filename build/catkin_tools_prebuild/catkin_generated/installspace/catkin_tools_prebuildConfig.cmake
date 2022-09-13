@@ -67,14 +67,14 @@ set(catkin_tools_prebuild_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(catkin_tools_prebuild_SOURCE_PREFIX /home/weifeng/wh_ws/build/catkin_tools_prebuild)
-  set(catkin_tools_prebuild_DEVEL_PREFIX /home/weifeng/wh_ws/devel/.private/catkin_tools_prebuild)
+  set(catkin_tools_prebuild_SOURCE_PREFIX /home/weifeng/Botkenstein/build/catkin_tools_prebuild)
+  set(catkin_tools_prebuild_DEVEL_PREFIX /home/weifeng/Botkenstein/devel/.private/catkin_tools_prebuild)
   set(catkin_tools_prebuild_INSTALL_PREFIX "")
   set(catkin_tools_prebuild_PREFIX ${catkin_tools_prebuild_DEVEL_PREFIX})
 else()
   set(catkin_tools_prebuild_SOURCE_PREFIX "")
   set(catkin_tools_prebuild_DEVEL_PREFIX "")
-  set(catkin_tools_prebuild_INSTALL_PREFIX /home/weifeng/wh_ws/install)
+  set(catkin_tools_prebuild_INSTALL_PREFIX /home/weifeng/Botkenstein/install)
   set(catkin_tools_prebuild_PREFIX ${catkin_tools_prebuild_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/weifeng/wh_ws/install/lib;/home/weifeng/wh_ws/devel/lib;/home/weifeng/ws_moveit/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/weifeng/Botkenstein/install/lib;/home/weifeng/ws_moveit/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

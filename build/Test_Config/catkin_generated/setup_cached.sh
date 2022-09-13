@@ -7,7 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/weifeng/wh_ws/devel/.private/Test_Config:$CMAKE_PREFIX_PATH"
-export PWD='/home/weifeng/wh_ws/build/Test_Config'
-export ROSLISP_PACKAGE_DIRECTORIES="/home/weifeng/wh_ws/devel/.private/Test_Config/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/weifeng/wh_ws/src/Test_Config:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/weifeng/Botkenstein/devel/.private/Test_Config:$CMAKE_PREFIX_PATH"
+export PWD='/home/weifeng/Botkenstein/build/Test_Config'
+export ROSLISP_PACKAGE_DIRECTORIES="/home/weifeng/Botkenstein/devel/.private/Test_Config/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/weifeng/Botkenstein/src/Test_Config:$ROS_PACKAGE_PATH"

@@ -1,6 +1,6 @@
-devel_space: /home/weifeng/wh_ws/devel
+devel_space: /home/weifeng/Botkenstein/devel
 install: false
-install_space: /home/weifeng/wh_ws/install
+install_space: /home/weifeng/Botkenstein/install
 profile: default
-source_space: /home/weifeng/wh_ws/src
-workspace: /home/weifeng/wh_ws
+source_space: /home/weifeng/Botkenstein/src
+workspace: /home/weifeng/Botkenstein

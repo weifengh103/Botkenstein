@@ -1,4 +1,4 @@
-prefix=/home/weifeng/wh_ws/install
+prefix=/home/weifeng/Botkenstein/install
 
 Name: catkin_tools_prebuild
 Description: Description of catkin_tools_prebuild

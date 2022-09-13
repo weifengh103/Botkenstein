@@ -1,4 +1,4 @@
-prefix=/home/weifeng/wh_ws/devel/.private/Test_Config2
+prefix=/home/weifeng/Botkenstein/devel/.private/Test_Config2
 
 Name: Test_Config2
 Description: Description of Test_Config2

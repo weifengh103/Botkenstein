@@ -7,7 +7,7 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/weifeng/wh_ws/devel/.private/robot_function-pkg:$CMAKE_PREFIX_PATH"
-export PWD='/home/weifeng/wh_ws/build/robot_function-pkg'
-export ROSLISP_PACKAGE_DIRECTORIES="/home/weifeng/wh_ws/devel/.private/robot_function-pkg/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/weifeng/wh_ws/src/robot_function-pkg:$ROS_PACKAGE_PATH"
+export CMAKE_PREFIX_PATH="/home/weifeng/Botkenstein/devel/.private/robot_function-pkg:$CMAKE_PREFIX_PATH"
+export PWD='/home/weifeng/Botkenstein/build/robot_function-pkg'
+export ROSLISP_PACKAGE_DIRECTORIES="/home/weifeng/Botkenstein/devel/.private/robot_function-pkg/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROS_PACKAGE_PATH="/home/weifeng/Botkenstein/src/robot_function-pkg:$ROS_PACKAGE_PATH"

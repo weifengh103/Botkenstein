@@ -1,4 +1,4 @@
-prefix=/home/weifeng/wh_ws/install
+prefix=/home/weifeng/Botkenstein/install
 
 Name: Test_Config4
 Description: Description of Test_Config4

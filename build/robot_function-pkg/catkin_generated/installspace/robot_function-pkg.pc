@@ -1,4 +1,4 @@
-prefix=/home/weifeng/wh_ws/install
+prefix=/home/weifeng/Botkenstein/install
 
 Name: robot_function-pkg
 Description: Description of robot_function-pkg
