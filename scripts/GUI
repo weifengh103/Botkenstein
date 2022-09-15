@@ -1,0 +1,125 @@
+#!/usr/bin/python3.8
+import PySimpleGUI as GUI
+from threading import Thread
+
+def initGUI():
+    layout = [
+        [GUI.Button('+X', key='btPX'),GUI.Button('-X', key='btNX'),GUI.Button('+Y', key='btPY'),GUI.Button('-Y', key='btNY'),GUI.Button('+Z', key='btPZ'),GUI.Button('-Z', key='btNZ')],     
+        [GUI.Button('+RX', key='btPRX'),GUI.Button('-RX', key='btNRX'),GUI.Button('+RY', key='btPRY'),GUI.Button('-RY', key='btNRY'),GUI.Button('+RZ', key='btPRZ'),GUI.Button('-RZ', key='btNRZ')],
+        [GUI.Button('+J1', key='btPJ1'),GUI.Button('-J1', key='btNJ1'),GUI.Button('+J2', key='btPJ2'),GUI.Button('-J2', key='btNJ2'),GUI.Button('+J3', key='btPJ3'),GUI.Button('-J3', key='btNJ3')],
+        [GUI.Button('+J4', key='btPJ4'),GUI.Button('-J4', key='btNJ4'),GUI.Button('+J5', key='btPJ5'),GUI.Button('-J5', key='btNJ5'),GUI.Button('+J6', key='btPJ6'),GUI.Button('-J6', key='btNJ6')]
+        ]
+    window = GUI.Window('Title', layout, finalize=True)
+
+    btPX = window['btPX']
+    btNX = window['btNX']
+    btPY = window['btPY']
+    btNY = window['btNY']
+    btPZ = window['btPZ']
+    btNZ = window['btNZ']
+
+    btPRX = window['btPRX']
+    btNRX = window['btNRX']
+    btPRY = window['btPRY']
+    btNRY = window['btNRY']
+    btPRZ = window['btPRZ']
+    btNRZ = window['btNRZ']
+
+    btPJ1 = window['btPJ1']
+    btNJ1 = window['btNJ1']
+    btPJ2 = window['btPJ2']
+    btNJ2 = window['btNJ2']
+    btPJ3 = window['btPJ3']
+    btNJ3 = window['btNJ3']
+    btPJ4 = window['btPJ4']
+    btNJ4 = window['btNJ4']
+    btPJ5 = window['btPJ5']
+    btNJ5 = window['btNJ5']
+    btPJ6 = window['btPJ6']
+    btNJ6 = window['btNJ6']
+
+
+    btPX.bind('<ButtonPress>', " Press", propagate=False)
+    btNX.bind('<ButtonPress>', " Press", propagate=False)
+    btPY.bind('<ButtonPress>', " Press", propagate=False)
+    btNY.bind('<ButtonPress>', " Press", propagate=False)
+    btPZ.bind('<ButtonPress>', " Press", propagate=False)
+    btNZ.bind('<ButtonPress>', " Press", propagate=False)
+
+    btPRX.bind('<ButtonPress>', " Press", propagate=False)
+    btNRX.bind('<ButtonPress>', " Press", propagate=False)
+    btPRY.bind('<ButtonPress>', " Press", propagate=False)
+    btNRY.bind('<ButtonPress>', " Press", propagate=False)
+    btPRZ.bind('<ButtonPress>', " Press", propagate=False)
+    btNRZ.bind('<ButtonPress>', " Press", propagate=False)
+
+    btPJ1.bind('<ButtonPress>', " Press", propagate=False)
+    btNJ1.bind('<ButtonPress>', " Press", propagate=False)
+    btPJ2.bind('<ButtonPress>', " Press", propagate=False)
+    btNJ2.bind('<ButtonPress>', " Press", propagate=False)
+    btPJ3.bind('<ButtonPress>', " Press", propagate=False)
+    btNJ3.bind('<ButtonPress>', " Press", propagate=False)
+    btPJ4.bind('<ButtonPress>', " Press", propagate=False)
+    btNJ4.bind('<ButtonPress>', " Press", propagate=False)
+    btPJ5.bind('<ButtonPress>', " Press", propagate=False)
+    btNJ5.bind('<ButtonPress>', " Press", propagate=False)
+    btPJ6.bind('<ButtonPress>', " Press", propagate=False)
+    btNJ6.bind('<ButtonPress>', " Press", propagate=False)
+
+    btPX.bind('<ButtonRelease>', " Release", propagate=False)
+    btNX.bind('<ButtonRelease>', " Release", propagate=False)
+    btPY.bind('<ButtonRelease>', " Release", propagate=False)
+    btNY.bind('<ButtonRelease>', " Release", propagate=False)
+    btPZ.bind('<ButtonRelease>', " Release", propagate=False)
+    btNZ.bind('<ButtonRelease>', " Release", propagate=False)
+
+    btPRX.bind('<ButtonRelease>', " Release", propagate=False)
+    btNRX.bind('<ButtonRelease>', " Release", propagate=False)
+    btPRY.bind('<ButtonRelease>', " Release", propagate=False)
+    btNRY.bind('<ButtonRelease>', " Release", propagate=False)
+    btPRZ.bind('<ButtonRelease>', " Release", propagate=False)
+    btNRZ.bind('<ButtonRelease>', " Release", propagate=False)
+
+    btPJ1.bind('<ButtonRelease>', " Release", propagate=False)
+    btNJ1.bind('<ButtonRelease>', " Release", propagate=False)
+    btPJ2.bind('<ButtonRelease>', " Release", propagate=False)
+    btNJ2.bind('<ButtonRelease>', " Release", propagate=False)
+    btPJ3.bind('<ButtonRelease>', " Release", propagate=False)
+    btNJ3.bind('<ButtonRelease>', " Release", propagate=False)
+    btPJ4.bind('<ButtonRelease>', " Release", propagate=False)
+    btNJ4.bind('<ButtonRelease>', " Release", propagate=False)
+    btPJ5.bind('<ButtonRelease>', " Release", propagate=False)
+    btNJ5.bind('<ButtonRelease>', " Release", propagate=False)
+    btPJ6.bind('<ButtonRelease>', " Release", propagate=False)
+    btNJ6.bind('<ButtonRelease>', " Release", propagate=False)
+
+
+
+    return window
+
+def CMDListener(window):
+    while True:
+        event, values = window.read()
+        if event == GUI.WIN_CLOSED:
+            break
+        print(event)
+        if event in ("Button Press"):
+            print("Button Press")
+        if event in ("Button Release"):
+            print("Button Release")
+
+def main():
+
+    window = initGUI()
+    windowListenThread = Thread(target=CMDListener(window))
+    windowListenThread.start()
+    while True:
+        empt = 1
+        
+    
+
+
+   
+
+if __name__ == "__main__":
+    main()

@@ -1,5 +1,5 @@
 import RobotControl
-
+import rospy
 
 def main():
     try:
@@ -7,10 +7,11 @@ def main():
       
         tutorial = RobotControl.MoveGroupPythonInterfaceTutorial()
 
+        
     
-        tutorial.
+ 
 
-
+        tutorial.go_to_joint_state()
 
         #print("============ Press `Enter` to plan and display a Cartesian path ...")
 

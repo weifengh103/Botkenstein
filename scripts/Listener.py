@@ -1,6 +1,7 @@
 #!/usr/bin/python3.8
 import rospy
 import tf
+import os
 
 if __name__ == '__main__':
     # initialize node
@@ -17,9 +18,11 @@ if __name__ == '__main__':
             # listen to transform
             (trans,rot) = listener.lookupTransform('/link6', '/base_link', rospy.Time(0))
             # print the transform
+            os.system('clear')
             rospy.loginfo('---------')
             rospy.loginfo('Translation: ' + str(trans))
             rospy.loginfo('Rotation: ' + str(rot))
+
         except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
             continue
         # sleep to control the node frequency

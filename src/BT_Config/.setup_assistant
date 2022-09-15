@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: robot_function-pkg
+    relative_path: urdf/BKRobot.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/macroed.srdf
+  CONFIG:
+    author_name: h
+    author_email: h@gmail.com
+    generated_timestamp: 1663099804

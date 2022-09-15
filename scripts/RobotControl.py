@@ -2,6 +2,7 @@
 
 from __future__ import print_function
 from six.moves import input
+
 import time
 import tf
 import sys
@@ -15,6 +16,7 @@ import tf2_ros
 
 from geometry_msgs.msg import PoseStamped
 from geometry_msgs.msg import Pose
+from visualization_msgs.msg import Marker, MarkerArray
 
 from math import pi, tau, dist, fabs, cos
 
@@ -28,6 +30,8 @@ class MoveGroupPythonInterfaceTutorial(object):
 
 
     def __init__(self):
+
+      
         # super(MoveGroupPythonInterfaceTutorial, self).__init__()
 
         ## BEGIN_SUB_TUTORIAL setup
@@ -86,6 +90,13 @@ class MoveGroupPythonInterfaceTutorial(object):
         self.eef_link = eef_link
         self.group_names = group_names
 
+
+      
+       
+ 
+        
+           
+
     def all_close(self, goal, actual, tolerance):
         """
         Convenience method for testing if the values in two lists are within a tolerance of each other.
@@ -120,12 +131,18 @@ class MoveGroupPythonInterfaceTutorial(object):
         move_group = self.move_group
 
         joint_goal = move_group.get_current_joint_values()
-        joint_goal[0] = 1
-        joint_goal[1] = 25 / 180 * pi 
-        joint_goal[2] = 56 /180 * pi 
+        joint_goal[0] = 0
+        joint_goal[1] = 0
+        joint_goal[2] = 0
         joint_goal[3] = 0
-        joint_goal[4] = -70 / 180 * pi 
-        joint_goal[5] = 0 / 180 * pi 
+        joint_goal[4] = 0
+        joint_goal[5] = 0
+       
+
+        move_group.go(joint_goal, wait=True)
+        move_group.stop()
+
+        joint_goal[5] = 1
        
 
         move_group.go(joint_goal, wait=True)

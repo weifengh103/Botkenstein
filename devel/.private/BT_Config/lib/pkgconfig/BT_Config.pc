@@ -1,0 +1,8 @@
+prefix=/home/weifeng/Botkenstein/devel/.private/BT_Config
+
+Name: BT_Config
+Description: Description of BT_Config
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
