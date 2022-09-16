@@ -5,7 +5,7 @@ def main():
     try:
 
       
-        tutorial = RobotControl.MoveGroupPythonInterfaceTutorial()
+        tutorial = RobotControl.RobotControl()
 
         
     
