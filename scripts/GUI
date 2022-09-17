@@ -3,17 +3,13 @@
 import imp
 from time import sleep
 import PySimpleGUI as GUI
-import RobotControl
 import rospy
 import TFListener as tf 
 import time
-import RobotControl
-
 from threading import Thread
 
 
 poseListener = tf.TFListener()
-robotControl = RobotControl.RobotControl()
 def InitGUI():
     layout = [
         [GUI.Text('X:'),GUI.Text('0',key='lbX'),GUI.Text('Y:'),GUI.Text('0',key='lbY'),GUI.Text('Z:'),GUI.Text('0',key='lbZ')],
@@ -115,7 +111,7 @@ def InitGUI():
     return window
   
 def GUIListener( window):
-
+    keepJogging = False
     while True:
         event, values = window.read(timeout = 10)
         if event == GUI.WIN_CLOSED:
@@ -124,8 +120,16 @@ def GUIListener( window):
             print(event)
 
         if event =='btHome':   
-            robotControl.go_to_joint_state()
+            poseListener.go_to_joint_state()
+        if event == 'btPJ1 Press':
+            keepJogging = True
+        if event == 'btPJ1 Release':
+            keepJogging = False    
 
+        if keepJogging:
+            poseListener.JogJoints()    
+         
+        print(event)
         window['lbX'].update(poseListener.X)
         window['lbY'].update(poseListener.Y)
         window['lbZ'].update(poseListener.Z)
@@ -142,6 +146,7 @@ def GUIListener( window):
 def main():
   
     poseListener.Initialize()
+
     window = InitGUI()
   
     while True:

@@ -78,15 +78,7 @@ class RobotControl(object):
 
 
     def all_close(self, goal, actual, tolerance):
-        """
-        Convenience method for testing if the values in two lists are within a tolerance of each other.
-        For Pose and PoseStamped inputs, the angle between the two quaternions is compared (the angle
-        between the identical orientations q and -q is calculated correctly).
-        @param: goal       A list of floats, a Pose or a PoseStamped
-        @param: actual     A list of floats, a Pose or a PoseStamped
-        @param: tolerance  A float
-        @returns: bool
-        """
+
         if type(goal) is list:
             for index in range(len(goal)):
                 if abs(actual[index] - goal[index]) > tolerance:
@@ -126,17 +118,10 @@ class RobotControl(object):
 
 
     def go_to_pose_goal(self):
-        # Copy class variables to local variables to make the web tutorials more clear.
-        # In practice, you should use the class variables directly unless you have a good
-        # reason not to.
+
         move_group = self.move_group
 
-        ## BEGIN_SUB_TUTORIAL plan_to_pose
-        ##
-        ## Planning to a Pose Goal
-        ## ^^^^^^^^^^^^^^^^^^^^^^^
-        ## We can plan a motion for this group to a desired pose for the
-        ## end-effector:
+
         pose_goal = geometry_msgs.msg.Pose()
         pose_goal.orientation.w = 1.0
         pose_goal.position.x = 0.4
@@ -145,20 +130,13 @@ class RobotControl(object):
 
         move_group.set_pose_target(pose_goal)
 
-        ## Now, we call the planner to compute the plan and execute it.
-        # `go()` returns a boolean indicating whether the planning and execution was successful.
+
         success = move_group.go(wait=True)
-        # Calling `stop()` ensures that there is no residual movement
+
         move_group.stop()
-        # It is always good to clear your targets after planning with poses.
-        # Note: there is no equivalent function for clear_joint_value_targets().
+
         move_group.clear_pose_targets()
 
-        ## END_SUB_TUTORIAL
-
-        # For testing:
-        # Note that since this section of code will not be included in the tutorials
-        # we use the class variable rather than the copied state variable
         current_pose = self.move_group.get_current_pose().pose
         return all_close(pose_goal, current_pose, 0.01)
 
@@ -167,23 +145,6 @@ class RobotControl(object):
         move_group = self.move_group
 
         waypoints = []
-
-        # wpose = move_group.get_current_pose().pose
-        # wpose.position.z -= scale * 0.1  # First move up (z)
-
-
-        # wpose.position.y += scale * 0.10  # and sideways (y)
-        # waypoints.append(copy.deepcopy(wpose))
-
-        # wpose.position.x += scale * 0.1 # Second move forward/backwards in (x)
-        # waypoints.append(copy.deepcopy(wpose))
-
-        # wpose.position.y -= scale * 0.1  # Third move sideways (y)
-        # waypoints.append(copy.deepcopy(wpose))
-
-        
-
-
 
         wpose = move_group.get_current_pose().pose
         wpose.position.z -= scale * 0.1  # First move up (z)
@@ -203,11 +164,6 @@ class RobotControl(object):
         waypoints.append(copy.deepcopy(wpose))
 
 
-        # We want the Cartesian path to be interpolated at a resolution of 1 cm
-        # which is why we will specify 0.01 as the eef_step in Cartesian
-        # translation.  We will disable the jump threshold by setting it to 0.0,
-        # ignoring the check for infeasible jumps in joint space, which is sufficient
-        # for this tutorial.
         (plan, fraction) = move_group.compute_cartesian_path(
             waypoints, 0.1, 0.0  # waypoints to follow  # eef_step
         )  # jump_threshold
@@ -261,66 +217,9 @@ class RobotControl(object):
             except:
                 continue
 
-            
-
         pose_transformed = tf2_geometry_msgs.do_transform_pose(offset, transform)
         print("pose_transformed",pose_transformed.pose)
-
-
         move_group.set_pose_target(pose_transformed.pose)
-   
         move_group.go()
 
-        # now = rospy.Time.now()
-        # self.tl.waitForTransform('base_link', 'link6', now ,rospy.Duration(1) )
-
-         
-
-        
-
-        # transformed_pose = transform_pose(my_pose, 'base_link', 'link6')
-
-  
-
-        # move_group = self.move_group     
- 
-        # currPose = move_group.get_current_pose()
-
-        # offsetPose = Pose()
-        # offsetPose.position.x = 0
-        # offsetPose.position.y = 0
-        # offsetPose.position.z = .01
-      
-
-
-        # EEName = move_group.get_end_effector_link()
-
-        # tfBuffer = tf2_ros.Buffer()
-        # poseout = PoseStamped()
-        # poseout2 = PoseStamped()
-        # poseout.header.stamp = rospy.Time(0)
- 
-        # poseout2 = tfBuffer.transform(currPose.pose, EEName)
-
-        
-        # now = rospy.Time.now()
-
-
-        
-        # self.tl.waitForTransform('base_link', EEName, now )
-
-        # poseEE = self.tl.transformPose(EEName, currPose)
-
-        # tl.transform()
-
-        # currPose2.pose.position.x += poseEE.pose.position.x 
-        # currPose2.pose.position.y += poseEE.pose.position.y 
-        # currPose2.pose.position.z += poseEE.pose.position.z 
-
-
-        # #currPose2.pose.position.z += 0.01 
-        # move_group.get_
-        # move_group.set_pose_target(currPose2)
-   
-        # move_group.go()
 
