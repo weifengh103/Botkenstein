@@ -1,1 +1,8 @@
-/home/weifeng/Botkenstein/devel/.private/Test_Config3/lib/pkgconfig/Test_Config3.pc
+prefix=/home/weifeng/Botkenstein/devel
+
+Name: Test_Config3
+Description: Description of Test_Config3
+Version: 0.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,8 +1,0 @@
-prefix=/home/weifeng/Botkenstein/devel/.private/Test_Config
-
-Name: Test_Config
-Description: Description of Test_Config
-Version: 0.3.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

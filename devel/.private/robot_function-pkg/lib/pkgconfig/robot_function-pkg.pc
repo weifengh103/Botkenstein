@@ -1,8 +1,0 @@
-prefix=/home/weifeng/Botkenstein/devel/.private/robot_function-pkg
-
-Name: robot_function-pkg
-Description: Description of robot_function-pkg
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
