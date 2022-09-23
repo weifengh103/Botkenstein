@@ -12,5 +12,5 @@ export LD_LIBRARY_PATH="/home/weifeng/Botkenstein/devel/lib:$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH="/home/weifeng/Botkenstein/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD='/home/weifeng/Botkenstein/build'
 export PYTHONPATH="/home/weifeng/Botkenstein/devel/lib/python3/dist-packages:$PYTHONPATH"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/weifeng/Botkenstein/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
+export ROSLISP_PACKAGE_DIRECTORIES='/home/weifeng/Botkenstein/devel/share/common-lisp'
 export ROS_PACKAGE_PATH="/home/weifeng/Botkenstein/src:$ROS_PACKAGE_PATH"

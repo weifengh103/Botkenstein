@@ -79,7 +79,7 @@ rosserial_server_lookup_EXTERNAL_OBJECTS =
 
 /home/weifeng/Botkenstein/devel/lib/librosserial_server_lookup.so: rosserial/rosserial_server/CMakeFiles/rosserial_server_lookup.dir/src/msg_lookup.cpp.o
 /home/weifeng/Botkenstein/devel/lib/librosserial_server_lookup.so: rosserial/rosserial_server/CMakeFiles/rosserial_server_lookup.dir/build.make
-/home/weifeng/Botkenstein/devel/lib/librosserial_server_lookup.so: /usr/lib/x86_64-linux-gnu/libpython3.8.so
+/home/weifeng/Botkenstein/devel/lib/librosserial_server_lookup.so: /usr/lib/aarch64-linux-gnu/libpython3.8.so
 /home/weifeng/Botkenstein/devel/lib/librosserial_server_lookup.so: rosserial/rosserial_server/CMakeFiles/rosserial_server_lookup.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/weifeng/Botkenstein/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library /home/weifeng/Botkenstein/devel/lib/librosserial_server_lookup.so"
 	cd /home/weifeng/Botkenstein/build/rosserial/rosserial_server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rosserial_server_lookup.dir/link.txt --verbose=$(VERBOSE)

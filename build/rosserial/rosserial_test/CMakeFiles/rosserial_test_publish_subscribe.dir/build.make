@@ -83,23 +83,23 @@ rosserial_test_publish_subscribe_EXTERNAL_OBJECTS =
 /home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /home/weifeng/Botkenstein/devel/lib/librosserial_server_lookup.so
 /home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /opt/ros/noetic/lib/libtopic_tools.so
 /home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /opt/ros/noetic/lib/libroscpp.so
-/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0
-/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
+/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/aarch64-linux-gnu/libpthread.so
+/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/aarch64-linux-gnu/libboost_chrono.so.1.71.0
+/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/aarch64-linux-gnu/libboost_filesystem.so.1.71.0
 /home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /opt/ros/noetic/lib/librosconsole.so
 /home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /opt/ros/noetic/lib/librosconsole_log4cxx.so
 /home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /opt/ros/noetic/lib/librosconsole_backend_interface.so
-/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
-/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
+/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/aarch64-linux-gnu/liblog4cxx.so
+/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/aarch64-linux-gnu/libboost_regex.so.1.71.0
 /home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /opt/ros/noetic/lib/libxmlrpcpp.so
 /home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /opt/ros/noetic/lib/libroscpp_serialization.so
 /home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /opt/ros/noetic/lib/librostime.so
-/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
+/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/aarch64-linux-gnu/libboost_date_time.so.1.71.0
 /home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /opt/ros/noetic/lib/libcpp_common.so
-/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
-/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
-/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4
-/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/x86_64-linux-gnu/libpython3.8.so
+/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/aarch64-linux-gnu/libboost_system.so.1.71.0
+/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/aarch64-linux-gnu/libboost_thread.so.1.71.0
+/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/aarch64-linux-gnu/libconsole_bridge.so.0.4
+/home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: /usr/lib/aarch64-linux-gnu/libpython3.8.so
 /home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe: rosserial/rosserial_test/CMakeFiles/rosserial_test_publish_subscribe.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/weifeng/Botkenstein/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/weifeng/Botkenstein/devel/lib/rosserial_test/rosserial_test_publish_subscribe"
 	cd /home/weifeng/Botkenstein/build/rosserial/rosserial_test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rosserial_test_publish_subscribe.dir/link.txt --verbose=$(VERBOSE)

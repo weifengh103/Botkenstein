@@ -170,7 +170,7 @@ class TFListener:
         joint_goal[5] = 0
        
 
-        move_group.go(joint_goal, wait=True)
+        move_group.go(joint_goal, wait=False)
         move_group.stop()
 
     def JogJoints(self):
@@ -182,7 +182,7 @@ class TFListener:
        
 
         move_group.go(joint_goal, wait=True)
-        move_group.stop()    
+        # move_group.stop()    
 
 
     def go_to_pose_goal(self):
