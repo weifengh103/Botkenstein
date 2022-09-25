@@ -7,6 +7,12 @@ import PySimpleGUI as GUI
 import rospy
 import TFListener as tf 
 import time
+
+import serial
+import time
+arduino = serial.Serial(port='/dev/ttyACM0', baudrate=115200, timeout=.1)
+
+
 from threading import Thread
 
 
@@ -143,6 +149,11 @@ def GUIListener( window):
         window['lbJ4'].update(poseListener.J4)
         window['lbJ5'].update(poseListener.J5)
         window['lbJ6'].update(poseListener.J6)
+
+        # TempTest
+        arduino.write(bytes(str(poseListener.J1), 'utf-8'))
+
+        time.sleep(0.01)
 
 def main():
   

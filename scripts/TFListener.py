@@ -178,7 +178,7 @@ class TFListener:
         move_group = self.move_group
 
         joint_goal = move_group.get_current_joint_values()
-        joint_goal[0] = joint_goal[0] +5/180*1.57 
+        joint_goal[0] = joint_goal[0] +1/180*1.57 
        
 
         move_group.go(joint_goal, wait=True)
