@@ -10,13 +10,19 @@ import time
 
 import serial
 import time
-arduino = serial.Serial(port='/dev/ttyACM0', baudrate=115200, timeout=.1)
+ 
+import ServoControl as sc
 
 
 from threading import Thread
 
 
 poseListener = tf.TFListener()
+
+servoControl = sc.ServoControl()    
+
+servoControl.HomeRobot()
+
 def InitGUI():
     layout = [
         [GUI.Text('X:'),GUI.Text('0',key='lbX'),GUI.Text('Y:'),GUI.Text('0',key='lbY'),GUI.Text('Z:'),GUI.Text('0',key='lbZ')],
@@ -150,10 +156,17 @@ def GUIListener( window):
         window['lbJ5'].update(poseListener.J5)
         window['lbJ6'].update(poseListener.J6)
 
-        # TempTest
-        arduino.write(bytes(str(poseListener.J1), 'utf-8'))
+        outputArray = [poseListener.J1,poseListener.J2, poseListener.J3,poseListener.J4,poseListener.J5,poseListener.J6]
+        
+        # pass ros angle to servo.
+        servoControl.MoveJ1(outputArray[0])
+        servoControl.MoveJ2(outputArray[1])
+        servoControl.MoveJ3(outputArray[2])
+        servoControl.MoveJ4(outputArray[3])
+        servoControl.MoveJ5(outputArray[4])
+        servoControl.MoveJ6(outputArray[5])
 
-        time.sleep(0.01)
+        time.sleep(0.005)
 
 def main():
   
