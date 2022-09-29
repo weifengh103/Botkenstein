@@ -1,6 +1,6 @@
 #!/usr/bin/python3.8
 # from re import X
-from re import X
+
 import rospy
 import tf
 import os
@@ -14,6 +14,9 @@ import geometry_msgs.msg
 import tf2_geometry_msgs
 import tf2_ros
 
+
+from geometry_msgs.msg import PoseStamped
+from geometry_msgs.msg import Pose
 
 from threading import Thread
 from sensor_msgs.msg import JointState
@@ -173,15 +176,14 @@ class TFListener:
         move_group.go(joint_goal, wait=False)
         move_group.stop()
 
-    def JogJoints(self):
+    def offsetJoint(self,jointIndex,offset):
 
+        jointIndex = jointIndex - 1
         move_group = self.move_group
-
         joint_goal = move_group.get_current_joint_values()
-        joint_goal[0] = joint_goal[0] +1/180*1.57 
-       
-
-        move_group.go(joint_goal, wait=True)
+        offsetRad = offset/180*3.14
+        joint_goal[jointIndex] = joint_goal[jointIndex] +  offsetRad     
+        move_group.go(joint_goal, wait=False)
         # move_group.stop()    
 
 
@@ -215,22 +217,24 @@ class TFListener:
         waypoints = []
 
         wpose = move_group.get_current_pose().pose
-        wpose.position.z -= scale * 0.1  # First move up (z)
-        waypoints.append(copy.deepcopy(wpose))
-        wpose.position.z += scale * 0.1  # First move up (z)
-        waypoints.append(copy.deepcopy(wpose))  
 
-        wpose.position.y += scale * 0.10  # and sideways (y)
-        waypoints.append(copy.deepcopy(wpose))
-        wpose.position.y -= scale * 0.10  # and sideways (y)
-        waypoints.append(copy.deepcopy(wpose))
+        # wpose.position.z -= scale * 0.06  # First move up (z)
+        # waypoints.append(copy.deepcopy(wpose))
+       
 
-        wpose.position.x += scale * 0.1 # Second move forward/backwards in (x)
+        wpose.position.y += scale * 0.15  # and sideways (y)
+        waypoints.append(copy.deepcopy(wpose))
+        wpose.position.y -= scale * 0.15  # and sideways (y)
         waypoints.append(copy.deepcopy(wpose))
 
-        wpose.position.x -= scale * 0.1 # Second move forward/backwards in (x)
+        wpose.position.x += scale * 0.15 # Second move forward/backwards in (x)
         waypoints.append(copy.deepcopy(wpose))
 
+        wpose.position.x -= scale * 0.15 # Second move forward/backwards in (x)
+        waypoints.append(copy.deepcopy(wpose))
+
+        # wpose.position.z += scale * 0.06  # First move up (z)
+        # waypoints.append(copy.deepcopy(wpose))  
 
         (plan, fraction) = move_group.compute_cartesian_path(
             waypoints, 0.1, 0.0  # waypoints to follow  # eef_step
@@ -238,6 +242,7 @@ class TFListener:
 
         # Note: We are just planning, not asking move_group to actually move the robot yet:
 
+        self.execute_plan(plan)
 
         return plan, fraction
 
@@ -248,7 +253,7 @@ class TFListener:
     def execute_plan(self, plan):
 
         move_group = self.move_group
-        move_group.execute(plan, wait=True)
+        move_group.execute(plan, wait=False)
 
     def tool_move(self):
         
@@ -257,7 +262,7 @@ class TFListener:
         offsetPose = Pose()
         offsetPose.position.x = 0
         offsetPose.position.y = 0
-        offsetPose.position.z = 0.15
+        offsetPose.position.z = -.1
 
         offsetPose.orientation.x = 0
         offsetPose.orientation.y = 0
@@ -286,7 +291,24 @@ class TFListener:
                 continue
 
         pose_transformed = tf2_geometry_msgs.do_transform_pose(offset, transform)
-        print("pose_transformed",pose_transformed.pose)
-        move_group.set_pose_target(pose_transformed.pose)
-        move_group.go()
+
+        # move_group.set_pose_target(pose_transformed.pose)
+        # move_group.go()
+
+
+        waypoints = []
+
+        wpose = move_group.get_current_pose().pose
+
+        # wpose.position.z -= scale * 0.06  # First move up (z)
+        # waypoints.append(copy.deepcopy(wpose))
+       
+
+     
+        waypoints.append(copy.deepcopy(pose_transformed.pose))
+        (plan, fraction) = move_group.compute_cartesian_path(
+            waypoints, 0.1, 0.0  # waypoints to follow  # eef_step
+        )  # jump_threshold
+
+        self.execute_plan(plan)
 

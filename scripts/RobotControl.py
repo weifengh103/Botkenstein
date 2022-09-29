@@ -170,6 +170,7 @@ class RobotControl(object):
 
         # Note: We are just planning, not asking move_group to actually move the robot yet:
 
+        self.execute_plan(plan)
 
         return plan, fraction
 

@@ -1,16 +1,10 @@
 #!/usr/bin/python3.8
 # from curses import window
-import imp
-from time import sleep
 
 import PySimpleGUI as GUI
-import rospy
 import TFListener as tf 
 import time
-
-import serial
 import time
- 
 import ServoControl as sc
 
 
@@ -25,9 +19,10 @@ servoControl.HomeRobot()
 
 def InitGUI():
     layout = [
+        [GUI.InputText()],
         [GUI.Text('X:'),GUI.Text('0',key='lbX'),GUI.Text('Y:'),GUI.Text('0',key='lbY'),GUI.Text('Z:'),GUI.Text('0',key='lbZ')],
         [GUI.Text('RX:'),GUI.Text('0',key='lbRX'),GUI.Text('RY:'),GUI.Text('0',key='lbRY'),GUI.Text('RZ:'),GUI.Text('0',key='lbRZ')],
-
+        [GUI.InputText()],
         [GUI.Text('J1:'),GUI.Text('0',key='lbJ1'),GUI.Text('J2:'),GUI.Text('0',key='lbJ2'),GUI.Text('J3:'),GUI.Text('0',key='lbJ3'),\
         GUI.Text('J4:'),GUI.Text('0',key='lbJ4'),GUI.Text('J5:'),GUI.Text('0',key='lbJ5'),GUI.Text('J6:'),GUI.Text('0',key='lbJ6')],
    
@@ -124,25 +119,68 @@ def InitGUI():
     return window
   
 def GUIListener( window):
-    keepJogging = False
+    XYZOffset1 = 0
+    jointOffset2 = 0
     while True:
         event, values = window.read(timeout = 10)
+        try:
+            XYZOffset1 = float(values[0])   
+        except:
+            XYZOffset1 = 0
+
+        try:
+            jointOffset2 = float(values[1])   
+        except:
+            jointOffset2 = 0
+
+
+
         if event == GUI.WIN_CLOSED:
             break
         if event !='__TIMEOUT__':
             print(event)
 
         if event =='btHome':   
-            poseListener.go_to_joint_state()
-        if event == 'btPJ1 Press':
-            keepJogging = True
-        if event == 'btPJ1 Release':
-            keepJogging = False    
+            # poseListener.go_to_joint_state()
+            # poseListener.plan_cartesian_path()
+            poseListener.tool_move()
+            
 
-        if keepJogging:
-            poseListener.JogJoints()    
+        # Offset XYZ
+        
+
+        # Offset Joint
+        if event == 'btPJ1 Press':
+            poseListener.offsetJoint(1,jointOffset2)
+        if event == 'btPJ2 Press':
+            poseListener.offsetJoint(2,jointOffset2)            
+        if event == 'btPJ3 Press':
+            poseListener.offsetJoint(3,jointOffset2)
+        if event == 'btPJ4 Press':
+            poseListener.offsetJoint(4,jointOffset2)
+        if event == 'btPJ5 Press':
+            poseListener.offsetJoint(5,jointOffset2)
+        if event == 'btPJ6 Press':
+            poseListener.offsetJoint(6,jointOffset2)
+
+        if event == 'btNJ1 Press':
+            poseListener.offsetJoint(1,-jointOffset2)
+        if event == 'btNJ2 Press':
+            poseListener.offsetJoint(2,-jointOffset2)            
+        if event == 'btNJ3 Press':
+            poseListener.offsetJoint(3,-jointOffset2)
+        if event == 'btNJ4 Press':
+            poseListener.offsetJoint(4,-jointOffset2)
+        if event == 'btNJ5 Press':
+            poseListener.offsetJoint(5,-jointOffset2)
+        if event == 'btNJ6 Press':
+            poseListener.offsetJoint(6,-jointOffset2)
+
+        
+
+       
          
-        print(event)
+
         window['lbX'].update(poseListener.X)
         window['lbY'].update(poseListener.Y)
         window['lbZ'].update(poseListener.Z)
@@ -166,7 +204,7 @@ def GUIListener( window):
         servoControl.MoveJ5(outputArray[4])
         servoControl.MoveJ6(outputArray[5])
 
-        time.sleep(0.005)
+        time.sleep(0.05)
 
 def main():
   
