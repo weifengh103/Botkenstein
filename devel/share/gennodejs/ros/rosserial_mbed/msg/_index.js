@@ -1,8 +1,1 @@
-
-"use strict";
-
-let Adc = require('./Adc.js');
-
-module.exports = {
-  Adc: Adc,
-};
+/home/weifeng/Botkenstein/devel/.private/rosserial_mbed/share/gennodejs/ros/rosserial_mbed/msg/_index.js

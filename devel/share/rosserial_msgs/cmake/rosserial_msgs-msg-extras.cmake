@@ -1,2 +1,1 @@
-set(rosserial_msgs_MESSAGE_FILES "/home/weifeng/Botkenstein/src/rosserial/rosserial_msgs/msg/Log.msg;/home/weifeng/Botkenstein/src/rosserial/rosserial_msgs/msg/TopicInfo.msg")
-set(rosserial_msgs_SERVICE_FILES "/home/weifeng/Botkenstein/src/rosserial/rosserial_msgs/srv/RequestParam.srv")
+/home/weifeng/Botkenstein/devel/.private/rosserial_msgs/share/rosserial_msgs/cmake/rosserial_msgs-msg-extras.cmake

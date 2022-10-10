@@ -1,10 +1,1 @@
-(cl:defpackage rosserial_arduino-srv
-  (:use )
-  (:export
-   "TEST"
-   "<TEST-REQUEST>"
-   "TEST-REQUEST"
-   "<TEST-RESPONSE>"
-   "TEST-RESPONSE"
-  ))
-
+/home/weifeng/Botkenstein/devel/.private/rosserial_arduino/share/common-lisp/ros/rosserial_arduino/srv/_package.lisp

@@ -160,7 +160,7 @@ class TFListener:
 
         return True
 
-    def go_to_joint_state(self):
+    def homeRobot(self):
 
         move_group = self.move_group
 
@@ -218,26 +218,26 @@ class TFListener:
 
         wpose = move_group.get_current_pose().pose
 
-        # wpose.position.z -= scale * 0.06  # First move up (z)
-        # waypoints.append(copy.deepcopy(wpose))
+        wpose.position.z -= scale * 0.06  # First move up (z)
+        waypoints.append(copy.deepcopy(wpose))
        
 
-        wpose.position.y += scale * 0.15  # and sideways (y)
-        waypoints.append(copy.deepcopy(wpose))
-        wpose.position.y -= scale * 0.15  # and sideways (y)
-        waypoints.append(copy.deepcopy(wpose))
+        # wpose.position.y += scale * 0.05  # and sideways (y)
+        # waypoints.append(copy.deepcopy(wpose))
+        # wpose.position.y -= scale * 0.05  # and sideways (y)
+        # waypoints.append(copy.deepcopy(wpose))
 
-        wpose.position.x += scale * 0.15 # Second move forward/backwards in (x)
-        waypoints.append(copy.deepcopy(wpose))
+        # wpose.position.x += scale * 0.05 # Second move forward/backwards in (x)
+        # waypoints.append(copy.deepcopy(wpose))
 
-        wpose.position.x -= scale * 0.15 # Second move forward/backwards in (x)
-        waypoints.append(copy.deepcopy(wpose))
+        # wpose.position.x -= scale * 0.05 # Second move forward/backwards in (x)
+        # waypoints.append(copy.deepcopy(wpose))
 
-        # wpose.position.z += scale * 0.06  # First move up (z)
-        # waypoints.append(copy.deepcopy(wpose))  
+        wpose.position.z += scale * 0.06  # First move up (z)
+        waypoints.append(copy.deepcopy(wpose))  
 
         (plan, fraction) = move_group.compute_cartesian_path(
-            waypoints, 0.1, 0.0  # waypoints to follow  # eef_step
+            waypoints, 0.0005, 0.0  # waypoints to follow  # eef_step
         )  # jump_threshold
 
         # Note: We are just planning, not asking move_group to actually move the robot yet:
@@ -255,14 +255,19 @@ class TFListener:
         move_group = self.move_group
         move_group.execute(plan, wait=False)
 
-    def tool_move(self):
+    def tool_move(self,poseOffset,poseIndex):
         
         move_group = self.move_group     
 
         offsetPose = Pose()
-        offsetPose.position.x = 0
-        offsetPose.position.y = 0
-        offsetPose.position.z = -.1
+        
+        if poseIndex == 0:
+            offsetPose.position.x = poseOffset
+        if poseIndex == 1:
+            offsetPose.position.y = poseOffset
+        if poseIndex == 2:
+            offsetPose.position.z = poseOffset
+        
 
         offsetPose.orientation.x = 0
         offsetPose.orientation.y = 0
@@ -307,7 +312,7 @@ class TFListener:
      
         waypoints.append(copy.deepcopy(pose_transformed.pose))
         (plan, fraction) = move_group.compute_cartesian_path(
-            waypoints, 0.1, 0.0  # waypoints to follow  # eef_step
+            waypoints, 0.0005, 0.0  # waypoints to follow  # eef_step
         )  # jump_threshold
 
         self.execute_plan(plan)

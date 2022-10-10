@@ -1,3 +1,1 @@
-cmake_minimum_required(VERSION 3.7.2)
-
-set(ROSSERIAL_TIVAC_TOOLCHAIN "/home/weifeng/Botkenstein/src/rosserial/rosserial_tivac/tivac-cmake/cmake/TivaCToolchain.cmake")
+/home/weifeng/Botkenstein/devel/.private/rosserial_tivac/share/rosserial_tivac/cmake/rosserial_tivac-extras.cmake

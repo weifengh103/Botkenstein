@@ -1,4 +1,1 @@
-cmake_minimum_required(VERSION 3.7.2)
-
-set(ROSSERIAL_ARDUINO_TOOLCHAIN "/home/weifeng/Botkenstein/src/rosserial/rosserial_arduino/arduino-cmake/cmake/ArduinoToolchain.cmake")
-
+/home/weifeng/Botkenstein/devel/.private/rosserial_arduino/share/rosserial_arduino/cmake/rosserial_arduino-extras.cmake

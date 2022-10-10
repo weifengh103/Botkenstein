@@ -19,102 +19,69 @@ servoControl.HomeRobot()
 
 def InitGUI():
     layout = [
-        [GUI.InputText()],
+        
         [GUI.Text('X:'),GUI.Text('0',key='lbX'),GUI.Text('Y:'),GUI.Text('0',key='lbY'),GUI.Text('Z:'),GUI.Text('0',key='lbZ')],
         [GUI.Text('RX:'),GUI.Text('0',key='lbRX'),GUI.Text('RY:'),GUI.Text('0',key='lbRY'),GUI.Text('RZ:'),GUI.Text('0',key='lbRZ')],
         [GUI.InputText()],
+        [GUI.Button('X', key='btX'),GUI.Button('Y', key='btY'),GUI.Button('Z', key='btZ'),\
+        GUI.Button('RX', key='btRX'),GUI.Button('RY', key='btRY'),GUI.Button('RZ', key='btRZ')],
+
+        
         [GUI.Text('J1:'),GUI.Text('0',key='lbJ1'),GUI.Text('J2:'),GUI.Text('0',key='lbJ2'),GUI.Text('J3:'),GUI.Text('0',key='lbJ3'),\
         GUI.Text('J4:'),GUI.Text('0',key='lbJ4'),GUI.Text('J5:'),GUI.Text('0',key='lbJ5'),GUI.Text('J6:'),GUI.Text('0',key='lbJ6')],
-   
-        [GUI.Button('+X', key='btPX'),GUI.Button('-X', key='btNX'),GUI.Button('+Y', key='btPY'),GUI.Button('-Y', key='btNY'),GUI.Button('+Z', key='btPZ'),GUI.Button('-Z', key='btNZ')],     
-        [GUI.Button('+RX', key='btPRX'),GUI.Button('-RX', key='btNRX'),GUI.Button('+RY', key='btPRY'),GUI.Button('-RY', key='btNRY'),GUI.Button('+RZ', key='btPRZ'),GUI.Button('-RZ', key='btNRZ')],
-        [GUI.Button('+J1', key='btPJ1'),GUI.Button('-J1', key='btNJ1'),GUI.Button('+J2', key='btPJ2'),GUI.Button('-J2', key='btNJ2'),GUI.Button('+J3', key='btPJ3'),GUI.Button('-J3', key='btNJ3')],
-        [GUI.Button('+J4', key='btPJ4'),GUI.Button('-J4', key='btNJ4'),GUI.Button('+J5', key='btPJ5'),GUI.Button('-J5', key='btNJ5'),GUI.Button('+J6', key='btPJ6'),GUI.Button('-J6', key='btNJ6')],
+        [GUI.InputText()],
+       
+        [GUI.Button('J1', key='btJ1'),GUI.Button('J2', key='btJ2'),GUI.Button('J3', key='btJ3'),\
+        GUI.Button('J4', key='btJ4'),GUI.Button('J5', key='btJ5'),GUI.Button('J6', key='btJ6')],
         
         [GUI.Button('Home', key='btHome')]
         ]
     window = GUI.Window('Title', layout, finalize=True)
 
-    btPX = window['btPX']
-    btNX = window['btNX']
-    btPY = window['btPY']
-    btNY = window['btNY']
-    btPZ = window['btPZ']
-    btNZ = window['btNZ']
+    btX = window['btX']
+    btY = window['btY']
+    btZ = window['btZ']
 
-    btPRX = window['btPRX']
-    btNRX = window['btNRX']
-    btPRY = window['btPRY']
-    btNRY = window['btNRY']
-    btPRZ = window['btPRZ']
-    btNRZ = window['btNRZ']
+    btRX = window['btRX']
+    btRY = window['btRY']
+    btRZ = window['btRZ']
 
-    btPJ1 = window['btPJ1']
-    btNJ1 = window['btNJ1']
-    btPJ2 = window['btPJ2']
-    btNJ2 = window['btNJ2']
-    btPJ3 = window['btPJ3']
-    btNJ3 = window['btNJ3']
-    btPJ4 = window['btPJ4']
-    btNJ4 = window['btNJ4']
-    btPJ5 = window['btPJ5']
-    btNJ5 = window['btNJ5']
-    btPJ6 = window['btPJ6']
-    btNJ6 = window['btNJ6']
+    btJ1 = window['btJ1']
+    btJ2 = window['btJ2']
+    btJ3 = window['btJ3']
+    btJ4 = window['btJ4']
+    btJ5 = window['btJ5']
+    btJ6 = window['btJ6']
 
-    btPX.bind('<ButtonPress>', " Press", propagate=False)
-    btNX.bind('<ButtonPress>', " Press", propagate=False)
-    btPY.bind('<ButtonPress>', " Press", propagate=False)
-    btNY.bind('<ButtonPress>', " Press", propagate=False)
-    btPZ.bind('<ButtonPress>', " Press", propagate=False)
-    btNZ.bind('<ButtonPress>', " Press", propagate=False)
+    btX.bind('<ButtonPress>', " Press", propagate=False)
+    btY.bind('<ButtonPress>', " Press", propagate=False)
+    btZ.bind('<ButtonPress>', " Press", propagate=False)
 
-    btPRX.bind('<ButtonPress>', " Press", propagate=False)
-    btNRX.bind('<ButtonPress>', " Press", propagate=False)
-    btPRY.bind('<ButtonPress>', " Press", propagate=False)
-    btNRY.bind('<ButtonPress>', " Press", propagate=False)
-    btPRZ.bind('<ButtonPress>', " Press", propagate=False)
-    btNRZ.bind('<ButtonPress>', " Press", propagate=False)
+    btRX.bind('<ButtonPress>', " Press", propagate=False)
+    btRY.bind('<ButtonPress>', " Press", propagate=False)
+    btRZ.bind('<ButtonPress>', " Press", propagate=False)
 
-    btPJ1.bind('<ButtonPress>', " Press", propagate=False)
-    btNJ1.bind('<ButtonPress>', " Press", propagate=False)
-    btPJ2.bind('<ButtonPress>', " Press", propagate=False)
-    btNJ2.bind('<ButtonPress>', " Press", propagate=False)
-    btPJ3.bind('<ButtonPress>', " Press", propagate=False)
-    btNJ3.bind('<ButtonPress>', " Press", propagate=False)
-    btPJ4.bind('<ButtonPress>', " Press", propagate=False)
-    btNJ4.bind('<ButtonPress>', " Press", propagate=False)
-    btPJ5.bind('<ButtonPress>', " Press", propagate=False)
-    btNJ5.bind('<ButtonPress>', " Press", propagate=False)
-    btPJ6.bind('<ButtonPress>', " Press", propagate=False)
-    btNJ6.bind('<ButtonPress>', " Press", propagate=False)
+    btJ1.bind('<ButtonPress>', " Press", propagate=False)
+    btJ2.bind('<ButtonPress>', " Press", propagate=False)
+    btJ3.bind('<ButtonPress>', " Press", propagate=False)
+    btJ4.bind('<ButtonPress>', " Press", propagate=False)
+    btJ5.bind('<ButtonPress>', " Press", propagate=False)
+    btJ6.bind('<ButtonPress>', " Press", propagate=False)
 
-    btPX.bind('<ButtonRelease>', " Release", propagate=False)
-    btNX.bind('<ButtonRelease>', " Release", propagate=False)
-    btPY.bind('<ButtonRelease>', " Release", propagate=False)
-    btNY.bind('<ButtonRelease>', " Release", propagate=False)
-    btPZ.bind('<ButtonRelease>', " Release", propagate=False)
-    btNZ.bind('<ButtonRelease>', " Release", propagate=False)
+    btX.bind('<ButtonRelease>', " Release", propagate=False)
+    btY.bind('<ButtonRelease>', " Release", propagate=False)
+    btZ.bind('<ButtonRelease>', " Release", propagate=False)
 
-    btPRX.bind('<ButtonRelease>', " Release", propagate=False)
-    btNRX.bind('<ButtonRelease>', " Release", propagate=False)
-    btPRY.bind('<ButtonRelease>', " Release", propagate=False)
-    btNRY.bind('<ButtonRelease>', " Release", propagate=False)
-    btPRZ.bind('<ButtonRelease>', " Release", propagate=False)
-    btNRZ.bind('<ButtonRelease>', " Release", propagate=False)
+    btRX.bind('<ButtonRelease>', " Release", propagate=False)
+    btRY.bind('<ButtonRelease>', " Release", propagate=False)
+    btRZ.bind('<ButtonRelease>', " Release", propagate=False)
 
-    btPJ1.bind('<ButtonRelease>', " Release", propagate=False)
-    btNJ1.bind('<ButtonRelease>', " Release", propagate=False)
-    btPJ2.bind('<ButtonRelease>', " Release", propagate=False)
-    btNJ2.bind('<ButtonRelease>', " Release", propagate=False)
-    btPJ3.bind('<ButtonRelease>', " Release", propagate=False)
-    btNJ3.bind('<ButtonRelease>', " Release", propagate=False)
-    btPJ4.bind('<ButtonRelease>', " Release", propagate=False)
-    btNJ4.bind('<ButtonRelease>', " Release", propagate=False)
-    btPJ5.bind('<ButtonRelease>', " Release", propagate=False)
-    btNJ5.bind('<ButtonRelease>', " Release", propagate=False)
-    btPJ6.bind('<ButtonRelease>', " Release", propagate=False)
-    btNJ6.bind('<ButtonRelease>', " Release", propagate=False)
+    btJ1.bind('<ButtonRelease>', " Release", propagate=False)
+    btJ2.bind('<ButtonRelease>', " Release", propagate=False)
+    btJ3.bind('<ButtonRelease>', " Release", propagate=False)
+    btJ4.bind('<ButtonRelease>', " Release", propagate=False)
+    btJ5.bind('<ButtonRelease>', " Release", propagate=False)
+    btJ6.bind('<ButtonRelease>', " Release", propagate=False)
 
     return window
   
@@ -141,40 +108,37 @@ def GUIListener( window):
             print(event)
 
         if event =='btHome':   
-            # poseListener.go_to_joint_state()
-            # poseListener.plan_cartesian_path()
-            poseListener.tool_move()
-            
+            poseListener.homeRobot()
+
 
         # Offset XYZ
-        
+        if event == 'btX Press':
+            poseListener.tool_move(XYZOffset1,0)
+        if event == 'btY Press':
+            poseListener.tool_move(XYZOffset1,1)          
+        if event == 'btZ Press':
+            poseListener.tool_move(XYZOffset1,2)
+        if event == 'btRX Press':
+            poseListener.tool_move(XYZOffset1,3)
+        if event == 'btRY Press':
+            poseListener.tool_move(XYZOffset1,4)
+        if event == 'btRZ Press':
+            poseListener.tool_move(XYZOffset1,5)
 
         # Offset Joint
-        if event == 'btPJ1 Press':
+        if event == 'btJ1 Press':
             poseListener.offsetJoint(1,jointOffset2)
-        if event == 'btPJ2 Press':
+        if event == 'btJ2 Press':
             poseListener.offsetJoint(2,jointOffset2)            
-        if event == 'btPJ3 Press':
+        if event == 'btJ3 Press':
             poseListener.offsetJoint(3,jointOffset2)
-        if event == 'btPJ4 Press':
+        if event == 'btJ4 Press':
             poseListener.offsetJoint(4,jointOffset2)
-        if event == 'btPJ5 Press':
+        if event == 'btJ5 Press':
             poseListener.offsetJoint(5,jointOffset2)
-        if event == 'btPJ6 Press':
+        if event == 'btJ6 Press':
             poseListener.offsetJoint(6,jointOffset2)
 
-        if event == 'btNJ1 Press':
-            poseListener.offsetJoint(1,-jointOffset2)
-        if event == 'btNJ2 Press':
-            poseListener.offsetJoint(2,-jointOffset2)            
-        if event == 'btNJ3 Press':
-            poseListener.offsetJoint(3,-jointOffset2)
-        if event == 'btNJ4 Press':
-            poseListener.offsetJoint(4,-jointOffset2)
-        if event == 'btNJ5 Press':
-            poseListener.offsetJoint(5,-jointOffset2)
-        if event == 'btNJ6 Press':
-            poseListener.offsetJoint(6,-jointOffset2)
 
         
 

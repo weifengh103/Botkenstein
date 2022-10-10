@@ -1,2 +1,1 @@
-from ._Log import *
-from ._TopicInfo import *
+/home/weifeng/Botkenstein/devel/.private/rosserial_msgs/lib/python3/dist-packages/rosserial_msgs/msg/__init__.py
