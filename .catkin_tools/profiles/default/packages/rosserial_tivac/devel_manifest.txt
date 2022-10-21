@@ -1,0 +1,6 @@
+rosserial/rosserial_tivac
+/home/weifeng/Botkenstein/devel/.private/rosserial_tivac/cmake.lock /home/weifeng/Botkenstein/devel/./cmake.lock
+/home/weifeng/Botkenstein/devel/.private/rosserial_tivac/share/rosserial_tivac/cmake/rosserial_tivacConfig-version.cmake /home/weifeng/Botkenstein/devel/share/rosserial_tivac/cmake/rosserial_tivacConfig-version.cmake
+/home/weifeng/Botkenstein/devel/.private/rosserial_tivac/share/rosserial_tivac/cmake/rosserial_tivacConfig.cmake /home/weifeng/Botkenstein/devel/share/rosserial_tivac/cmake/rosserial_tivacConfig.cmake
+/home/weifeng/Botkenstein/devel/.private/rosserial_tivac/share/rosserial_tivac/cmake/rosserial_tivac-extras.cmake /home/weifeng/Botkenstein/devel/share/rosserial_tivac/cmake/rosserial_tivac-extras.cmake
+/home/weifeng/Botkenstein/devel/.private/rosserial_tivac/lib/pkgconfig/rosserial_tivac.pc /home/weifeng/Botkenstein/devel/lib/pkgconfig/rosserial_tivac.pc

@@ -29,7 +29,7 @@ class TFListener:
 
         self.ser = serial.Serial(
         port='/dev/ttyUSB0',
-        baudrate=19200,
+        baudrate=9600,
         parity=serial.PARITY_NONE,
         stopbits=serial.STOPBITS_ONE,
         bytesize=serial.EIGHTBITS
@@ -99,16 +99,15 @@ class TFListener:
         self.group_names = group_names
 
     def ValveOn(self):
-        thestring = "A0 01 01 A2"
-        data = struct.pack(hex(thestring))
-        #data = struct.pack(hex, 0x7E, 0xFF, 0x03, 0x00, 0x01, 0x00, 0x02, 0x0A, 0x01, 0xC8,      0x04, 0xD0, 0x01, 0x02, 0x80, 0x00, 0x00, 0x00, 0x00, 0x8E, 0xE7, 0x7E)
-        self.ser.write(data)
-
+        thestring = b'\xA0\x01\x01\xA2'
+        # thestring = b'\xA0\x02\x01\xA3'
+        self.ser.write(thestring)
+    
+         
     def ValveOff(self):
-        thestring = "A0 01 00 A1"
-        data = struct.pack(hex(thestring))
-        #data = struct.pack(hex, 0x7E, 0xFF, 0x03, 0x00, 0x01, 0x00, 0x02, 0x0A, 0x01, 0xC8,      0x04, 0xD0, 0x01, 0x02, 0x80, 0x00, 0x00, 0x00, 0x00, 0x8E, 0xE7, 0x7E)
-        self.ser.write(data)
+        thestring = b'\xA0\x01\x00\xA1'
+        # thestring = b'\xA0\x02\x00\xA2'
+        self.ser.write(thestring)
 
     def RosSpin(sefl):
         rospy.spin()

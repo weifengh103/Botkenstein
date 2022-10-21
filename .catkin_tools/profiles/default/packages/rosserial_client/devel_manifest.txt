@@ -1,0 +1,9 @@
+rosserial/rosserial_client
+/home/weifeng/Botkenstein/devel/.private/rosserial_client/cmake.lock /home/weifeng/Botkenstein/devel/./cmake.lock
+/home/weifeng/Botkenstein/devel/.private/rosserial_client/share/rosserial_client/cmake/rosserial_clientConfig.cmake /home/weifeng/Botkenstein/devel/share/rosserial_client/cmake/rosserial_clientConfig.cmake
+/home/weifeng/Botkenstein/devel/.private/rosserial_client/share/rosserial_client/cmake/rosserial_clientConfig-version.cmake /home/weifeng/Botkenstein/devel/share/rosserial_client/cmake/rosserial_clientConfig-version.cmake
+/home/weifeng/Botkenstein/devel/.private/rosserial_client/lib/pkgconfig/rosserial_client.pc /home/weifeng/Botkenstein/devel/lib/pkgconfig/rosserial_client.pc
+/home/weifeng/Botkenstein/devel/.private/rosserial_client/lib/python3/dist-packages/rosserial_client/__init__.py /home/weifeng/Botkenstein/devel/lib/python3/dist-packages/rosserial_client/__init__.py
+/home/weifeng/Botkenstein/devel/.private/rosserial_client/lib/rosserial_client/make_library.py /home/weifeng/Botkenstein/devel/lib/rosserial_client/make_library.py
+/home/weifeng/Botkenstein/devel/.private/rosserial_client/lib/rosserial_client/make_libraries /home/weifeng/Botkenstein/devel/lib/rosserial_client/make_libraries
+/home/weifeng/Botkenstein/devel/.private/rosserial_client/lib/rosserial_client/cmake.lock /home/weifeng/Botkenstein/devel/lib/rosserial_client/cmake.lock

@@ -1,0 +1,7 @@
+rosserial/rosserial_windows
+/home/weifeng/Botkenstein/devel/.private/rosserial_windows/cmake.lock /home/weifeng/Botkenstein/devel/./cmake.lock
+/home/weifeng/Botkenstein/devel/.private/rosserial_windows/share/rosserial_windows/cmake/rosserial_windowsConfig.cmake /home/weifeng/Botkenstein/devel/share/rosserial_windows/cmake/rosserial_windowsConfig.cmake
+/home/weifeng/Botkenstein/devel/.private/rosserial_windows/share/rosserial_windows/cmake/rosserial_windowsConfig-version.cmake /home/weifeng/Botkenstein/devel/share/rosserial_windows/cmake/rosserial_windowsConfig-version.cmake
+/home/weifeng/Botkenstein/devel/.private/rosserial_windows/lib/pkgconfig/rosserial_windows.pc /home/weifeng/Botkenstein/devel/lib/pkgconfig/rosserial_windows.pc
+/home/weifeng/Botkenstein/devel/.private/rosserial_windows/lib/rosserial_windows/cmake.lock /home/weifeng/Botkenstein/devel/lib/rosserial_windows/cmake.lock
+/home/weifeng/Botkenstein/devel/.private/rosserial_windows/lib/rosserial_windows/make_libraries.py /home/weifeng/Botkenstein/devel/lib/rosserial_windows/make_libraries.py

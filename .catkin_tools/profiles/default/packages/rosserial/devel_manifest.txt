@@ -1,0 +1,2 @@
+rosserial/rosserial
+/home/weifeng/Botkenstein/devel/.private/rosserial/cmake.lock /home/weifeng/Botkenstein/devel/./cmake.lock

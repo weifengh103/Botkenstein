@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "BT_Config"
-PROJECT_SPACE_DIR = "/home/weifeng/Botkenstein/devel"
+PROJECT_SPACE_DIR = "/home/weifeng/Botkenstein/devel/.private/BT_Config"
 PROJECT_VERSION = "0.3.0"

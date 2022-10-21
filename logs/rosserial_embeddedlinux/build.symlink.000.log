@@ -1,0 +1,5 @@
+Symlinking /home/weifeng/Botkenstein/devel/share/rosserial_embeddedlinux/cmake/rosserial_embeddedlinuxConfig.cmake
+Symlinking /home/weifeng/Botkenstein/devel/share/rosserial_embeddedlinux/cmake/rosserial_embeddedlinuxConfig-version.cmake
+Symlinking /home/weifeng/Botkenstein/devel/lib/pkgconfig/rosserial_embeddedlinux.pc
+Symlinking /home/weifeng/Botkenstein/devel/lib/rosserial_embeddedlinux/cmake.lock
+Symlinking /home/weifeng/Botkenstein/devel/lib/rosserial_embeddedlinux/make_libraries.py

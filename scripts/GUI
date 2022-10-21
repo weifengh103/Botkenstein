@@ -1,10 +1,11 @@
 #!/usr/bin/python3.8
 # from curses import window
 
+from typing import ValuesView
 import PySimpleGUI as GUI
 import TFListener as tf 
 import time
-import time
+
 import ServoControl as sc
 
 
@@ -167,6 +168,11 @@ def GUIListener( window):
         servoControl.MoveJ4(outputArray[3])
         servoControl.MoveJ5(outputArray[4])
         servoControl.MoveJ6(outputArray[5])
+
+        poseListener.ValveOn()
+        # time.sleep(5)
+        poseListener.ValveOff()
+        # time.sleep(5)
 
         time.sleep(0.05)
 

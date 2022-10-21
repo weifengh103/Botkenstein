@@ -1,0 +1,5 @@
+rosserial/rosserial_test
+/home/weifeng/Botkenstein/devel/.private/rosserial_test/cmake.lock /home/weifeng/Botkenstein/devel/./cmake.lock
+/home/weifeng/Botkenstein/devel/.private/rosserial_test/share/rosserial_test/cmake/rosserial_testConfig.cmake /home/weifeng/Botkenstein/devel/share/rosserial_test/cmake/rosserial_testConfig.cmake
+/home/weifeng/Botkenstein/devel/.private/rosserial_test/share/rosserial_test/cmake/rosserial_testConfig-version.cmake /home/weifeng/Botkenstein/devel/share/rosserial_test/cmake/rosserial_testConfig-version.cmake
+/home/weifeng/Botkenstein/devel/.private/rosserial_test/lib/pkgconfig/rosserial_test.pc /home/weifeng/Botkenstein/devel/lib/pkgconfig/rosserial_test.pc

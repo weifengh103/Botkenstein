@@ -1,0 +1,7 @@
+Symlinking /home/weifeng/Botkenstein/devel/share/rosserial_server/cmake/rosserial_serverConfig.cmake
+Symlinking /home/weifeng/Botkenstein/devel/share/rosserial_server/cmake/rosserial_serverConfig-version.cmake
+Symlinking /home/weifeng/Botkenstein/devel/lib/librosserial_server_lookup.so
+Symlinking /home/weifeng/Botkenstein/devel/lib/rosserial_server/socket_node
+Symlinking /home/weifeng/Botkenstein/devel/lib/rosserial_server/serial_node
+Symlinking /home/weifeng/Botkenstein/devel/lib/rosserial_server/udp_socket_node
+Symlinking /home/weifeng/Botkenstein/devel/lib/pkgconfig/rosserial_server.pc
