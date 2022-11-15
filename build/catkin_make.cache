@@ -1,0 +1,2 @@
+BT_Config:realsense-ros/realsense2_camera:realsense-ros/realsense2_camera_msgs:realsense-ros/realsense2_description:robot_function-pkg
+-DCATKIN_DEVEL_PREFIX=/home/weifeng/Botkenstein/devel -DCMAKE_INSTALL_PREFIX=/home/weifeng/Botkenstein/install -G Unix Makefiles

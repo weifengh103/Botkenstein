@@ -1,1 +1,0 @@
-/home/weifeng/Botkenstein/devel/.private/rosserial_python/lib/rosserial_python/serial_node.py

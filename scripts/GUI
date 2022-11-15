@@ -169,9 +169,9 @@ def GUIListener( window):
         servoControl.MoveJ5(outputArray[4])
         servoControl.MoveJ6(outputArray[5])
 
-        poseListener.ValveOn()
+        # poseListener.ValveOn()
         # time.sleep(5)
-        poseListener.ValveOff()
+        # poseListener.ValveOff()
         # time.sleep(5)
 
         time.sleep(0.05)

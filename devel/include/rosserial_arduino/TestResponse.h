@@ -1,1 +1,0 @@
-/home/weifeng/Botkenstein/devel/.private/rosserial_arduino/include/rosserial_arduino/TestResponse.h

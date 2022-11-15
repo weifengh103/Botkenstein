@@ -284,9 +284,9 @@ class TFListener:
         offsetPose = Pose()
         
         if poseIndex == 0:
-            offsetPose.position.x = poseOffset
+            offsetPose.position.x = poseOffset / 0.9
         if poseIndex == 1:
-            offsetPose.position.y = poseOffset
+            offsetPose.position.y = poseOffset / 0.8
         if poseIndex == 2:
             offsetPose.position.z = poseOffset
         

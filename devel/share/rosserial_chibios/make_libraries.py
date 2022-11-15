@@ -1,1 +1,0 @@
-/home/weifeng/Botkenstein/devel/.private/rosserial_chibios/share/rosserial_chibios/make_libraries.py

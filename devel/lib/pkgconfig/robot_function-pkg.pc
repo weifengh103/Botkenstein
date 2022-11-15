@@ -1,1 +1,0 @@
-/home/weifeng/Botkenstein/devel/.private/robot_function-pkg/lib/pkgconfig/robot_function-pkg.pc
