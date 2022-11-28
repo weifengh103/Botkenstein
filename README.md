@@ -1,12 +1,13 @@
 # Project Title
 
 Botkenstein
+![Picture1](https://user-images.githubusercontent.com/49855242/204385830-e347e0d9-866e-4077-afce-17e1a7e56246.png)
 
 ## Description
 
-BotKenstein is a DIY Robot-AGV (Autonomous Guided Vehicle) project for learning how to build a robot-AGV system from scratch, and apply it for vision based path planing and forlowing, object tracking and handling, charge station docking, and other interesting functions in the future. 
+BotKenstein is a DIY Robot-AGV (Autonomous Guided Vehicle) project for learning how to build a robot-AGV system from scratch, and apply it for vision based path planing and forlowing, object tracking and handling, charge station docking, and other interesting applications. 
 
-The control software is implemented in Python and run on a Nvidia Jetson Xavier NX developer kit with Ubuntu 20.04 . ROS Noetice is used for robot motion control and its robot joints informoation is sent to the robot's servo motors for real time control. The robot is mounted on a Roomba robot that has two DC driven wheels with encoders. The intelligence in the Roomba is striped out and it is control by the control software.  A Realsense D415 camera is used for all of the vision related tasks. All the vsion functions will be implemented in OpenCV. Also, Tanserflow will be applied for advance deeplearning functions. 
+The control software is implemented in Python and run on a Nvidia Jetson Xavier NX developer kit with Ubuntu 20.04 . ROS Noetice is used for robot motion control and its robot joints informoation is sent to the robot's servo motors for real time control. The robot is mounted on a Roomba robot that has two DC driven wheels with encoders. The intelligence in the Roomba is striped out and it is controled by the control software. A Realsense D415 camera is used for all of the vision related tasks. All the vsion functions will be implemented in OpenCV. Also, Tanserflow will be applied for advance deeplearning functions. 
 
 
 ## Project Road Map
@@ -18,8 +19,8 @@ The control software is implemented in Python and run on a Nvidia Jetson Xavier 
 * Add servo control to the software.(Achieved)
 * Control the real robot with ROS in real time. (Achieved)
 * Mount a camera and a suction cup to the robot, and wire the hardware to the onboard outputs. (Achieved)
-* Setup OpenCV, Tenserflow and Realsense SDK in the software.
-* Implement a vision guided robot pick and place funcion.
+* Setup OpenCV, Tenserflow and Realsense SDK in the software. (Achieved)
+* Implement a vision guided robot pick and place funcion. (WIP)
 * Wire the Roomba DC motors to the Jetson board.
 * Implement the motor PID control.
 * Mount the robot to the Roomba and setup the system hardware. 
