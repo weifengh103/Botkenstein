@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Global Variable Example</title>
+</head>
+<body>
+    <h1>Global Variable Example</h1>
+
+    <button onclick="setGlobalVariable('Value set in Function 1')">Set Value in Function 1</button>
+    <button onclick="useGlobalVariable('Value set in Function 2')">Set Value in Function 2</button>
+
+    <script>
+        // Declare the global variable
+        var globalVariable;
+
+        // Function 1: Set the value of the global variable
+        function setGlobalVariable(value) {
+            globalVariable = value;
+            console.log("Global variable set to: " + globalVariable);
+        }
+
+        // Function 2: Use the value of the global variable
+        function useGlobalVariable() {
+            console.log("Using global variable: " + globalVariable);
+        }
+    </script>
+</body>
+</html>

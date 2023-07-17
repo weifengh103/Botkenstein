@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <h1>AJAX Example</h1>
+    <img src="{{ url_for('video_feed') }}" alt="This is cam">
+    <div id="result">haha</div>
+
+    <label  for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    <!-- <button type="submit">Submi
+       t</button> -->
+
+    <!-- <label for="name1">Name:</label>
+    <input type="text" id="name1" name="name1"> -->
+
+    <input type="button" 
+    value="Button" 
+    ontouchstart="btStart()"
+    ontouchend = "btStop()"
+
+     style="height:200px;width:200px" >
+<p></p>
+     <input type="button" 
+    value="Button2" 
+    ontouchstart="btStart2()"
+    ontouchend = "btStop2()"
+
+     style="height:200px;width:200px" >
+<!-- 
+     <input type="button" class="button"
+     value="Button2" 
+     ontouchstart="btStart()"
+     ontouchend = "btStop()"
+      style="height:200px;width:200px" >
+    -->
+   
+    <script>
+        
+        // add below function to stop right click manual
+        document.addEventListener('contextmenu', function(event) {event.preventDefault(); });
+
+
+        var pauseUpdating1;
+
+        function btStop() {
+            pauseUpdating1 = false;
+            console.log("bt1 release");
+            "name".tex
+
+        }
+
+        function btStart() {
+           
+            console.log("bt1 press");
+            document.getElementById('result').innerHTML
+                = "bt1 press";
+        }
+
+        function btStop2() {
+            pauseUpdating1 = false;
+            console.log("bt2 release");
+            document.getElementById('result').innerHTML
+                = "bt2 release";
+        }
+
+        function btStart2() {
+           
+            console.log("bt2 press");
+        }
+
+
+        $(document).ready(function() {
+            // setInterval(function()
+            //  {
+            //     var name = $("#name").val();
+            //     if (  !pauseUpdating1)
+            //     {
+            //         console.log(pauseUpdating1);
+
+            //         $.ajax({
+            //         url: "/get_data",
+            //         type: "POST",
+            //         data: { name: name },
+            //         success: function(response) {
+            //             $("#result").text("POST response: " + response);
+            //         },
+            //         error: function(error) {
+            //             console.log(error);
+            //         }
+            //     });
+            //     }
+            // }, 200); 
+            // Request interval: 1 second
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // POST function
+            // $("#myForm").submit(function(event) {
+            //     event.preventDefault(); // Prevent default form submission
+
+            //     var name = $("#name").val();
+
+            //     $.ajax({
+            //         url: "/save_data",
+            //         type: "POST",
+            //         data: { name: name },
+            //         success: function(response) {
+            //             $("#result").text("POST response: " + response);
+            //         },
+            //         error: function(error) {
+            //             console.log(error);
+            //         }
+            //     });
+            // });
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <h1>AJAX Example</h1>
+    
+    <p id="variableValue"></p>
+    <textarea id = "poetvariable"></textarea>
+    
+    <script>
+        $(document).ready(function() {
+            setInterval(function()
+             {
+                $.ajax({
+                    url: "/get_variable",
+                    type: "GET",
+                    success: function(response) {
+                        $("#variableValue").text(response);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+                $.ajax({
+                    url: "/poet_variable",
+                    type: "POST",
+                    success: function(response) {
+                        $("#poetvariable").text(response);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            }, 1000); // Request interval: 1 second
+        });
+    </script>
+</body>
+</html> -->
