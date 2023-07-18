@@ -1,6 +1,6 @@
 from flask import Flask, render_template, Response,request
 import cv2
-# from AGV import AGV
+from AGV import AGV
 
 app = Flask(__name__)
 
@@ -33,6 +33,19 @@ def getRobotCMD():
         return "This is the GET data"
     if request.method == 'POST':
         name = request.get_data(as_text=True)
+        if name == "RobotTurnLeft":
+            agv.turnLeft()
+        if name == "RobotTurnRight":
+            agv.turnRight()
+        if name == "RobotForward":
+            agv.forward()
+        if name == "RobotBackward":
+            agv.backward()
+        if name == "RobotStop":
+            agv.stop()
+        if 'Speed' in name:
+            speed = name[5:]
+            agv._setSpeed(speed)
         print(name)
         # agv.getCMD(name)
 
@@ -42,9 +55,9 @@ def getRobotCMD():
  
 
 if __name__ == '__main__':
-    # agv = AGV()
-    # agv.init()
+    agv = AGV()
+    agv.init()
 
-    app.run(host='0.0.0.0', port=5500, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
     # app.run( debug=True)
     print(1)
