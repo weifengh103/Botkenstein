@@ -43,8 +43,9 @@ def getRobotCMD():
             agv.backward()
         if name == "RobotStop":
             agv.stop()
-        if 'Speed' in name:
+        if "Speed" in name:
             speed = name[5:]
+            speed = int(speed)
             agv._setSpeed(speed)
         print(name)
         # agv.getCMD(name)

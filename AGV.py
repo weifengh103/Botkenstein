@@ -50,7 +50,7 @@ class AGV:
         print(CMD)
 
     def _setSpeed(self,speed):
-        # speed = speed/100*255
+        
         self._lPWM.ChangeDutyCycle(speed)
         self._rPWM.ChangeDutyCycle(speed)
 
