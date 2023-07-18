@@ -21,9 +21,8 @@
 </style>
 
 <body>
-    <h1>MCK Botkenstein</h1>&nbsp
-    <img width="800px" src="{{ url_for('video_feed') }}" alt="This is cam">
-
+    <!-- <h1>MCK Botkenstein</h1>&nbsp -->
+   
     <!-- <button type="submit">Submit</button> -->
 
     <!-- <label for="name1">Name:</label>
@@ -36,21 +35,30 @@
     <button id="btRobotBackward" class="moveButton" onpointerdown ="RobotBackward()" onpointerup="RobotPause()" style="height: 150px">↓</button>
     <p> -->
 
-  
-    <p id="lbSpeed">Speed: 50%;</p>       
-   
+     
+            
+ 
+    
+    <p style="margin-left: 700px; margin-top: 200px;">
+    <label id="lbSpeed" >Speed: 50%</label> 
+    <input type="range"  id="sdSpeedSlider" style="transform: rotate(270deg);" min="10" max="100" value="50">
+
+    </p>
+
     <p>
         <button id="btRobotTurnLeft" class="moveButton" style="margin-right: 30px;">←</button>
-        <button id="btRobotTurnRight" class="moveButton" style="margin-right: 180px;">→</button>
-        <input type="range" id="sdSpeedSlider" style="transform: rotate(270deg);" min="10" max="100" value="50">
-        <button id="btRobotForward" class="moveButton" style="margin-right: 30px; height: 150px;">↑</button> 
-        <button id="btRobotBackward" class="moveButton" style="height: 150px">↓</button>
+        <button id="btRobotTurnRight" class="moveButton" style="margin-right: 0px;">→</button>
+        
+        <img width="450" height="300" src="{{ url_for('video_feed') }}" alt="This is cam">
+
+        <button id="btRobotForward" class="moveButton" style="margin-right: 30px;">↑</button> 
+        <button id="btRobotBackward" class="moveButton" >↓</button>
     <p>
         
 
 
 
-    <input type="button" 
+    <!-- <input type="button" 
     value="Button" 
     ontouchstart="btStart()"
     ontouchend = "btStop()"
@@ -63,7 +71,7 @@
     ontouchstart="btStart2()"
     ontouchend = "btStop2()"
 
-     style="height:80px;width:80px" >
+     style="height:80px;width:80px" > -->
 <!-- 
      <input type="button" class="button"
      value="Button2" 
@@ -71,7 +79,7 @@
      ontouchend = "btStop()"
       style="height:200px;width:200px" >
     -->
-    pauseUpdating1
+    
     <script>
          // add below function to stop right click manual
         document.addEventListener('contextmenu', function(event) {event.preventDefault(); });
@@ -83,13 +91,13 @@
             speed.textContent = "Speed: " + speedSlider.value.toString() + "%";
         });
         
-        speedSlider.addEventListener("mouseup", function() {
+        speedSlider.addEventListener("touchend", function() {
             console.log("Slider value on mouse release:" + speedSlider.value);
             $.ajax({
                 url: "/getRobotCMD",
                 type: "POST",
                 contentType: 'text/plain',
-                data: speedSlider.value,
+                data: speedSlider.value.toString(),
                 success: function(d) {
                     // alert(d);
                 }
@@ -104,7 +112,8 @@
 
         // Add event listeners to each button when clicked
         buttons.forEach(function(button) {
-            button.addEventListener('mousedown', function(event) {
+            button.addEventListener('touchstart', function(event) {
+                event.preventDefault()
                 var clickedButton = event.target;
                 var buttonText = clickedButton.id;
                 buttonText = buttonText.substring(2)
@@ -117,6 +126,7 @@
                 data: buttonText,
                 success: function(d) {
                     // alert(d);
+                    console.log('mousedown')
                 }
                 });
                
@@ -125,7 +135,24 @@
 
         // Add event listeners to each button when release
         buttons.forEach(function(button) {
-            button.addEventListener('mouseup', function(event) {
+            button.addEventListener('touchend', function(event) {
+                event.preventDefault()
+                var clickedButton = event.target;
+                var buttonText = clickedButton.id;
+                buttonText = buttonText.substring(2)
+                // alert('Button "' + buttonText + '" clicked!');
+                
+                $.ajax({
+                url: "/getRobotCMD",
+                type: "POST",
+                contentType: 'text/plain',
+                data: 'RobotStop',
+                success: function(d) {
+                    // alert(d);
+                    // console.log('mousedown')
+                }
+                });
+                console.log('mouseup')
             });
         });
 
@@ -138,7 +165,7 @@
         // }
         // function RobotTurnRight(){
         //     RobotCurrTask = "RobotTurnRight";
-        //     console.log(RobotCurrTask);
+        //     console.log(RobotCurrTask);touchend
         // }
 
         // function RobotForward(){
@@ -157,32 +184,7 @@
         // }
 
 
-        function btStop() {
-            pauseUpdating1 = false;
-            console.log("bt1 release");
-          
-
-        }
-
-        function btStart() {
-           
-            console.log("bt1 press");
-            document.getElementById('result').innerHTML
-                = "bt1 press";
-        }
-
-        function btStop2() {
-            pauseUpdating1 = false;
-            console.log("bt2 release");
-            document.getElementById('result').innerHTML
-                = "bt2 release";
-        }
-
-        function btStart2() {
-           
-            console.log("bt2 press");
-        }
-
+      
 
         $(document).ready(function() {
 
