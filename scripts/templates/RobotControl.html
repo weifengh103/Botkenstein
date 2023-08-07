@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Botkenstein Web</title> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<!-- Button Style -->
+<style>
+    .moveButton {
+      
+      color: rgb(0, 0, 0);
+      text-align: center;
+      justify-content: center;
+      /* display: inline-block; */
+      cursor: pointer;
+      font-size: 50px;
+      width: 100px;
+      height: 100px;
+      margin-left: 20px
+    }
+</style>
+<body>
+    <h1>Botkenstein Robot</h1>
+    <p> <a href="{{ url_for('AGVControl') }}">AGV Control</a>.</p>
+</body>
+    <!-- <h1>MCK Botkenstein</h1>&nbsp -->
+   
+    <!-- <button type="submit">Submit</button> -->
+
+    <!-- <label for="name1">Name:</label>
+    <input type="text" id="name1" name="name1"> -->
+<p style="margin-left: 0; margin-bottom: 100px; margin-top: 100px;">
+    <label id="lbSpeed" >Offset: 1</label> 
+    <input type="range"  id="sdSpeedSlider" style=" position: absolute; left: 100px; transform: rotate(270deg);" min="-10" max="10" value="1">
+</p>
+
+
+
+<div> 
+    <button id="btX" class="moveButton" onpointerdown ="RobotTurnLeft()"  style="margin-right: 0">X</button>
+    <button id="btY" class="moveButton" onpointerdown ="RobotTurnRight()" style="margin-right: 1000">Y</button>
+    <button id="btZ" class="moveButton" onpointerdown ="RobotForward()" style="margin-right: 0 ">Z</button> 
+    
+</div>
+
+<div style="margin-top: 50px;">
+    <button id="btJ1" class="moveButton" onpointerdown ="RobotTurnLeft()"  style="margin-right: 0">J1</button>
+    <button id="btJ2" class="moveButton" onpointerdown ="RobotTurnRight()" style="margin-right: 1000">J2</button>
+    <button id="btJ3" class="moveButton" onpointerdown ="RobotForward()" style="margin-right: 0 ">J3</button> 
+    <button id="btJ4" class="moveButton" onpointerdown ="RobotBackward()" style="margin-right: 0">J4</button>
+    <button id="btJ5" class="moveButton" onpointerdown ="RobotTurnLeft()" style="margin-right: 0">J5</button>
+    <button id="btJ6" class="moveButton" onpointerdown ="RobotTurnRight()" style="margin-right: 0">J6</button>
+</div>
+
+     
+            
+ 
+ 
+
+        
+
+
+
+    <!-- <input type="button" 
+    value="Button" 
+    ontouchstart="btStart()"
+    ontouchend = "btStop()"
+
+
+     style="height: 80px;width:80px" >
+<p></p>
+     <input type="button" 
+    value="↑" 
+    ontouchstart="btStart2()"
+    ontouchend = "btStop2()"
+
+     style="height:80px;width:80px" > -->
+<!-- 
+     <input type="button" class="button"
+     value="Button2" 
+     ontouchstart="btStart()"
+     ontouchend = "btStop()"
+      style="height:200px;width:200px" >
+    -->
+    
+    <script>
+         // add below function to stop right click manual
+        document.addEventListener('contextmenu', function(event) {event.preventDefault(); });
+
+        var speedSlider = document.getElementById("sdSpeedSlider");
+        var speed = document.getElementById("lbSpeed");
+
+        speedSlider.addEventListener("input", function() {
+            speed.textContent = "Offset: " + speedSlider.value.toString();
+        });
+        
+        speedSlider.addEventListener("touchend", function() {
+            console.log("Slider value on mouse release:" + speedSlider.value);
+            $.ajax({
+                url: "/getRobotCMD",
+                type: "POST",
+                contentType: 'text/plain',
+                data: 'Speed'+speedSlider.value.toString(),
+                success: function(d) {
+                    // alert(d);
+                }
+                });
+        });
+
+        var pauseUpdating1;
+
+        var RobotCurrTask;
+
+        var buttons = document.querySelectorAll('.moveButton');
+
+        // Add event listeners to each button when clicked
+        buttons.forEach(function(button) {
+            button.addEventListener('touchstart', function(event) {
+                event.preventDefault()
+                var clickedButton = event.target;
+                var buttonText = clickedButton.id;
+                buttonText = buttonText.substring(2)
+                // alert('Button "' + buttonText + '" clicked!');
+                
+                $.ajax({
+                url: "/getRobotCMD",
+                type: "POST",
+                contentType: 'text/plain',
+                data: buttonText,
+                success: function(d) {
+                    // alert(d);
+                    console.log('mousedown')
+                }
+                });
+               
+            });
+        });
+
+        // Add event listeners to each button when release
+        buttons.forEach(function(button) {
+            button.addEventListener('touchend', function(event) {
+                event.preventDefault()
+                var clickedButton = event.target;
+                var buttonText = clickedButton.id;
+                buttonText = buttonText.substring(2)
+                // alert('Button "' + buttonText + '" clicked!');
+                
+                $.ajax({
+                url: "/getRobotCMD",
+                type: "POST",
+                contentType: 'text/plain',
+                data: 'RobotStop',
+                success: function(d) {
+                    // alert(d);
+                    // console.log('mousedown')
+                }
+                });
+                console.log('mouseup')
+            });
+        });
+
+
+
+        // function RobotTurnLeft(){
+        //     RobotCurrTask = "RobotTurnLeft";
+        //     console.log(RobotCurrTask);
+
+        // }
+        // function RobotTurnRight(){
+        //     RobotCurrTask = "RobotTurnRight";
+        //     console.log(RobotCurrTask);touchend
+        // }
+
+        // function RobotForward(){
+        //     RobotCurrTask = "RobotForward";
+        //     console.log(RobotCurrTask);
+        // }
+
+        // function RobotBackward(){
+        //     RobotCurrTask = "RobotBackward";
+        //     console.log(RobotCurrTask);
+        // }
+
+        // function RobotPause(){
+        //     RobotCurrTask = "RobotPause";
+        //     console.log(RobotCurrTask);
+        // }
+
+
+      
+
+        $(document).ready(function() {
+
+            // POST function
+            // $("#myForm").submit(function(event) {
+            //     event.preventDefault(); // Prevent default form submission
+
+            //     var name = $("#name").val();
+
+            //     $.ajax({
+            //         url: "/save_data",
+            //         type: "POST",
+            //         data: { name: name },
+            //         success: function(response) {
+            //             $("#result").text("POST response: " + response);
+            //         },
+            //         error: function(error) {
+            //             console.log(error);
+            //         }
+            //     });
+            // });
+            
+            // setInterval(function()
+            //  {
+                
+                
+            //     //  RobotCurrTask = $("#name").val();
+            //     $.ajax({
+            //     url: "/getRobotCMD",
+            //     type: "POST",
+            //     contentType: 'text/plain',
+            //     data: RobotCurrTask,
+            //     success: function(d) {
+            //         // alert(d);
+            //     }
+            //     });
+                
+            // }, 200); 
+            // Request interval: 1 second
+
+
+
+
+
+
+
+            
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <h1>AJAX Example</h1>
+    
+    <p id="variableValue"></p>
+    <textarea id = "poetvariable"></textarea>
+    
+    <script>
+        $(document).ready(function() {
+            setInterval(function()
+             {
+                $.ajax({
+                    url: "/get_variable",
+                    type: "GET",
+                    success: function(response) {
+                        $("#variableValue").text(response);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+                $.ajax({
+                    url: "/poet_variable",
+                    type: "POST",
+                    success: function(response) {
+                        $("#poetvariable").text(response);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            }, 1000); // Request interval: 1 second
+        });
+    </script>
+</body>
+</html> -->

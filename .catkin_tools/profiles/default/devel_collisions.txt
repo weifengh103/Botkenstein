@@ -1,1 +1,2 @@
-/home/weifeng/Botkenstein/devel/./cmake.lock 83
+/home/weifeng/Botkenstein/devel/./cmake.lock 80
+/home/weifeng/Desktop/Botkenstein/devel/./cmake.lock 2

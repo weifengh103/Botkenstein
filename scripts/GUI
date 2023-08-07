@@ -14,9 +14,9 @@ from threading import Thread
 
 poseListener = tf.TFListener()
 
-servoControl = sc.ServoControl()    
+# servoControl = sc.ServoControl()    
 
-servoControl.HomeRobot()
+# servoControl.HomeRobot()
 
 def InitGUI():
     layout = [
@@ -162,12 +162,12 @@ def GUIListener( window):
         outputArray = [poseListener.J1,poseListener.J2, poseListener.J3,poseListener.J4,poseListener.J5,poseListener.J6]
         
         # pass ros angle to servo.
-        servoControl.MoveJ1(outputArray[0])
-        servoControl.MoveJ2(outputArray[1])
-        servoControl.MoveJ3(outputArray[2])
-        servoControl.MoveJ4(outputArray[3])
-        servoControl.MoveJ5(outputArray[4])
-        servoControl.MoveJ6(outputArray[5])
+        # servoControl.MoveJ1(outputArray[0])
+        # servoControl.MoveJ2(outputArray[1])
+        # servoControl.MoveJ3(outputArray[2])
+        # servoControl.MoveJ4(outputArray[3])
+        # servoControl.MoveJ5(outputArray[4])
+        # servoControl.MoveJ6(outputArray[5])
 
         # poseListener.ValveOn()
         # time.sleep(5)

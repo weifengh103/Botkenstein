@@ -8,9 +8,11 @@
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
+            // "program": "${file}",
             "console": "integratedTerminal",
-            "justMyCode": true
+            "justMyCode": true,
+            "program": "/home/weifeng/Desktop/Botkenstein/scripts/app.py",
+            "env": {"PYTHONPATH": "/home/weifeng/Desktop/Botkenstein/"}
         }
     ]
 }

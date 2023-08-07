@@ -1,0 +1,6 @@
+devel_space: /home/weifeng/Desktop/Botkenstein/devel
+install: false
+install_space: /home/weifeng/Desktop/Botkenstein/install
+profile: default
+source_space: /home/weifeng/Desktop/Botkenstein/src
+workspace: /home/weifeng/Desktop/Botkenstein
