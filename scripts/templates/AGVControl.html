@@ -97,12 +97,11 @@
         speedSlider.addEventListener("touchend", function() {
             console.log("Slider value on mouse release:" + speedSlider.value);
             $.ajax({
-                url: "/getRobotCMD",
+                url: "/getAGVCMD",
                 type: "POST",
                 contentType: 'text/plain',
                 data: 'Speed'+speedSlider.value.toString(),
                 success: function(d) {
-                    // alert(d);
                 }
                 });
         });
@@ -123,7 +122,7 @@
                 // alert('Button "' + buttonText + '" clicked!');
                 
                 $.ajax({
-                url: "/getRobotCMD",
+                url: "/getAGVCMD",
                 type: "POST",
                 contentType: 'text/plain',
                 data: buttonText,
@@ -146,7 +145,7 @@
                 // alert('Button "' + buttonText + '" clicked!');
                 
                 $.ajax({
-                url: "/getRobotCMD",
+                url: "/getAGVCMD",
                 type: "POST",
                 contentType: 'text/plain',
                 data: 'RobotStop',
@@ -157,84 +156,6 @@
                 });
                 console.log('mouseup')
             });
-        });
-
-
-
-        // function RobotTurnLeft(){
-        //     RobotCurrTask = "RobotTurnLeft";
-        //     console.log(RobotCurrTask);
-
-        // }
-        // function RobotTurnRight(){
-        //     RobotCurrTask = "RobotTurnRight";
-        //     console.log(RobotCurrTask);touchend
-        // }
-
-        // function RobotForward(){
-        //     RobotCurrTask = "RobotForward";
-        //     console.log(RobotCurrTask);
-        // }
-
-        // function RobotBackward(){
-        //     RobotCurrTask = "RobotBackward";
-        //     console.log(RobotCurrTask);
-        // }
-
-        // function RobotPause(){
-        //     RobotCurrTask = "RobotPause";
-        //     console.log(RobotCurrTask);
-        // }
-
-
-      
-
-        $(document).ready(function() {
-
-            // POST function
-            // $("#myForm").submit(function(event) {
-            //     event.preventDefault(); // Prevent default form submission
-
-            //     var name = $("#name").val();
-
-            //     $.ajax({
-            //         url: "/save_data",
-            //         type: "POST",
-            //         data: { name: name },
-            //         success: function(response) {
-            //             $("#result").text("POST response: " + response);
-            //         },
-            //         error: function(error) {
-            //             console.log(error);
-            //         }
-            //     });
-            // });
-            
-            // setInterval(function()
-            //  {
-                
-                
-            //     //  RobotCurrTask = $("#name").val();
-            //     $.ajax({
-            //     url: "/getRobotCMD",
-            //     type: "POST",
-            //     contentType: 'text/plain',
-            //     data: RobotCurrTask,
-            //     success: function(d) {
-            //         // alert(d);
-            //     }
-            //     });
-                
-            // }, 200); 
-            // Request interval: 1 second
-
-
-
-
-
-
-
-            
         });
     </script>
 </body>

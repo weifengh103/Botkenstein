@@ -2,7 +2,20 @@ from flask import Flask, render_template, Response,request
 import cv2
 from AGV import AGV
 
+from typing import ValuesView
+import PySimpleGUI as GUI
+import TFListener as tf 
+import time
+
+# Initialization
+
 app = Flask(__name__)
+
+poseListener = tf.TFListener()
+# servoControl = sc.ServoControl()  
+import ServoControl as sc
+
+
 def generate_frames():
     camera = cv2.VideoCapture(0)
     while True:
@@ -30,8 +43,8 @@ def RobotControl():
     return render_template('RobotControl.html')
 
 
-@app.route('/getRobotCMD', methods=['GET','POST'])
-def getRobotCMD():
+@app.route('/getAGVCMD', methods=['GET','POST'])
+def getAGVCMD():
     # return "This is the GET data"
     if request.method == 'GET':
         return "This is the GET data"
@@ -57,11 +70,52 @@ def getRobotCMD():
     return "nice"
    
 
+@app.route('/getRobotCMD', methods=['GET','POST'])
+def getRobotCMD():
+    # return "This is the GET data"
+    if request.method == 'GET':
+        return "This is the GET data"
+    if request.method == 'POST':
+        name = request.get_data(as_text=True)
+        if name == "btX":
+            poseListener.tool_move(0,0.01)
+        if name == "btY":
+            poseListener.tool_move1(1,0.01)
+        if name == "btX":
+            poseListener.tool_move(2,0.01)
+
+
+        
+        if name == "btJ1":
+            poseListener.offsetJoint(1,step)
+        if name == "btJ2":
+            poseListener.offsetJoint(2,step)
+        if name == "btJ3":
+            poseListener.offsetJoint(3,step)
+        if name == "btJ4":
+            poseListener.offsetJoint(4,step)
+        if name == "btJ5":
+            poseListener.offsetJoint(5,step)
+        if name == "btJ6":
+            poseListener.offsetJoint(6,step)
+  
+        if "Step" in name:
+            step = name[5:]
+            step = int(step)
+           
+        print(name)
+        # agv.getCMD(name)
+
+    return "nice"
+   
+
  
 
 if __name__ == '__main__':
     agv = AGV()
     agv.init()
+    # poseListener.Initialize()
 
-    app.run(host='0.0.0.0', port=5000, debug=False)
+
+    app.run(host='0.0.0.0', port=5000, debug=True)
     print(1)
